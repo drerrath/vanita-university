@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+  tag: string;
+  category: string;
+  description: string;
+}
+
+const { image, tag, category, description } = Astro.props;
+---
+
+<div class="flex w-full flex-col">
+  <div class="flex-1 relative">
+    <Image
+      src={image}
+      alt="image"
+      class="w-full h-50 object-cover object-top"
+    />
+    <button
+      class="px-4 py-3 bg-amber-600 text-xs rounded-sm text-teal-950 font-roboto absolute -bottom-4 e right-3"
+      >{tag}</button
+    >
+  </div>
+  <div class="flex-1 px-6 pt-6 space-y-1 border border-amber-900/20">
+    <h1 class="font-marcellus font-semibold text-teal-950">
+      {category}
+    </h1>
+    <h2 class="font-marcellus font-semibold text-amber-500">School</h2>
+    <p class="text-xs text-teal-950/80">{description}</p>
+    <button
+      class="bg-teal-900 text-gray-100 p-2 w-full rounded-sm text-xs font-roboto font-extrabold translate-y-4"
+      >View Curriculum</button
+    >
+  </div>
+</div>
