@@ -1,16 +1,22 @@
 ---
 import Container from "./Container.astro";
-import heroBg from "../assets/images/hero_background.webp";
 import { Image } from "astro:assets";
+import heroBg from "../assets/images/background.jpg";
 import profile1 from "../assets/images/profile1.jpg";
 import profile2 from "../assets/images/profile2.jpg";
 import profile3 from "../assets/images/profile3.jpg";
 import profile4 from "../assets/images/profile4.jpg";
+import { getImage } from "astro:assets";
+
+const imgOpt = await getImage({
+  src: heroBg,
+  quality: "low",
+});
 ---
 
 <div
-  class="bg-cover bg-center md:bg-top bg-no-repeat bg-teal-900 bg-blend-darken md:bg-fixed relative"
-  style=`background-image: url('${heroBg.src}')`
+  class="bg-cover bg-center md:bg-top bg-no-repeat md:bg-fixed bg-teal-950/90 bg-blend-darken"
+  style=`background-image: url('${imgOpt.src}')`
 >
   <!-- Hero Container -->
   <Container
@@ -39,26 +45,38 @@ import profile4 from "../assets/images/profile4.jpg";
         <Image
           src={profile1}
           alt="prifle-1"
+          height={40}
+          width={40}
           class="w-10 h-10 rounded-full border-2 border-amber-400/80 object-cover"
           loading="eager"
+          quality="low"
         />
         <Image
           src={profile2}
           alt="profile-2"
+          height={40}
+          width={40}
           class="w-10 h-10 rounded-full border-2 border-amber-400/80 object-cover -ml-3"
           loading="eager"
+          quality="low"
         />
         <Image
           src={profile3}
           alt="prffile-3"
+          height={40}
+          width={40}
           class="w-10 h-10 rounded-full border-2 object-cover border-amber-400/80 -ml-3"
           loading="eager"
+          quality="low"
         />
         <Image
           src={profile4}
           alt="profile-4"
+          height={40}
+          width={40}
           class="w-10 h-10 rounded-full border-2 object-cover border-amber-400/80 -ml-3 mr-3"
           loading="eager"
+          quality="low"
         />
 
         <h1 class="text-xs md:text-sm font-semibold tracking-wide">
@@ -91,7 +109,7 @@ import profile4 from "../assets/images/profile4.jpg";
         <div>
           <h1 class="text-xs font-semibold">Academic Student</h1>
           <h1 class="text-xs font-semibold">Information</h1>
-          <p class="text-xs text-gray-100/70 mt-4 pb-4 border-b">
+          <p class="text-xs text-gray-100/70 mt-4 pb-0">
             One of the World's most dynamic caplitals.
           </p>
         </div>

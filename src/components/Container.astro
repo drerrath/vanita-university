@@ -6,6 +6,6 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
 const { as: Tag, class: extraClass, ...props } = Astro.props;
 ---
 
-<Tag class:list={["w-full max-w-4xl mx-auto", extraClass]} {...props}>
+<Tag class:list={["w-full max-w-5xl mx-auto", extraClass]} {...props}>
   <slot />
 </Tag>

@@ -3,10 +3,16 @@ import Container from "./Container.astro";
 import { Image } from "astro:assets";
 import asideImg1 from "../assets/images/asideImg1.jpg";
 import asideImg2 from "../assets/images/asideImg2.jpg";
+import { getImage } from "astro:assets";
+import bgAbout from "../assets/images/about_background.jpg";
+const bgImg = await getImage({
+  src: bgAbout,
+});
 ---
 
 <div
-  class="w-screen bg-[url(../assets/images/about_background.jpg)] bg-cover bg-no-repeat bg-amber-400/10 bg-blend-overlay flex items-center justify-center flex-col md:flex-row"
+  class="w-screen bg-cover bg-no-repeat flex items-center justify-center flex-col md:flex-row bg-amber-200/20 bg-blend-overlay"
+  style=`background-image: url('${bgImg.src}')`
 >
   <Container as="section" class="px-4 w-full flex flex-col md:flex-row my-10">
     <!-- About Left -->
@@ -58,13 +64,21 @@ import asideImg2 from "../assets/images/asideImg2.jpg";
     <!-- About Right -->
     <aside class="flex-1 mt-10 md:ml-4 flex flex-col">
       <div class="bg-teal-900 self-end">
-        <Image src={asideImg1} alt="" class="w-75 h-57 object-cover" />
+        <Image
+          src={asideImg1}
+          alt=""
+          class="w-75 h-57 object-cover"
+          width={300}
+          height={260}
+        />
       </div>
       <div class="-mt-10">
         <Image
           src={asideImg2}
           alt=""
           class="w-75 h-57 object-cover object-top border-2 border-gray-100 hover:grayscale transition-all duration-300"
+          width={300}
+          height={260}
         />
       </div>
     </aside>

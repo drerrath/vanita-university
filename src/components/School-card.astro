@@ -13,7 +13,13 @@ const { image, tag, category, description } = Astro.props;
 
 <div class="flex w-full flex-col">
   <div class="flex-1 relative">
-    <Image src={image} alt="" class="w-full h-50 object-cover object-top" />
+    <Image
+      src={image}
+      alt=""
+      class="w-full h-50 object-cover object-top"
+      height={250}
+      width={250}
+    />
     <button
       class="px-4 py-3 bg-amber-600 text-xs rounded-sm text-teal-950 font-roboto absolute -bottom-4 e right-3"
       >{tag}</button
